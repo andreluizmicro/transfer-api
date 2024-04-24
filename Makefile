@@ -19,3 +19,9 @@ docker-build:
 
 docker-bash: docker-up
 	docker exec -it $(CONTAINER_NAME) sh
+
+docker-coverage-html: docker-up
+	docker exec -t $(CONTAINER_NAME) composer test-coverage-html
+
+docker-test: docker-up
+	docker exec -it $(CONTAINER_NAME) ./vendor/bin/phpunit
